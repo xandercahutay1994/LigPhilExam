@@ -78,7 +78,7 @@
         // function to check if input is text only
         function textOnly(event){
             // g = global, i = allow uppercase, \s = allow spaces
-            var regexp = /[\sa-z]/gi;
+            var regexp = /[\sa-z-=!@#$%^&*()_+.,<>/?]/gi;
             var ch = String.fromCharCode(event.which);
             if(!(regexp.test(ch)))
                 event.preventDefault();
