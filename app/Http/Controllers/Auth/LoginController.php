@@ -30,6 +30,15 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/adminLists';
 
+    /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
     /**
     * Create a new controller instance.
@@ -39,20 +48,14 @@ class LoginController extends Controller
     public function login(Request $request){
 
         if(Auth::attempt(['id' => $request->user_id, 'password' => $request->password])){
-            return redirect()->intended(route('/adminLists'));    
+            return redirect('/adminLists');    
         }else{
             return redirect('/login')->with('error','Error');
         }
     }
 
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+    public function logout(){
+        Auth::guard('web')->logout();
+        return redirect('/login');
     }
 }
