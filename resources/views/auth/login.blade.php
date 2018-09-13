@@ -12,7 +12,7 @@
                 <label for="user-id" class="form-title">USER ID</label>
                 <input type="text" id="user_id" name="user_id" class="input input-text">
                 <label for="password" class="form-title">PASSWORD</label>
-                <input type="text" id="password" name="password" class="input input-text">
+                <input type="password" id="password" name="password" class="input input-text">
                 <div class="nav-item">
                     @include('inc.messages')
                 </div>
