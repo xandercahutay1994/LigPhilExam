@@ -10,7 +10,7 @@
         <div class="l-main-block"></div>
             <div class="single">
             	@if(count($matchArticle) > 0)
-	                <img src="/storage/images/{{$matchArticle[0]->image}}" alt="" class="single-image">
+	                <img src="{{ asset('/storage/images/' . $matchArticle[0]->image) }}" alt="" class="single-image">
 	                <div class="l-container u-clear">
 	                    <h1 class="single-title">{{ $matchArticle[0]->title }}</h1>
 	                    <time class="single-date" datetime="{{ $matchArticle[0]->posted_date }}">{{ $matchArticle[0]->posted_date }}</time>

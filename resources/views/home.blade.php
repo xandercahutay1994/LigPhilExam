@@ -20,4 +20,13 @@
         </div>
     </div>
 </div>
+<!-- CahutzalexSSS199423*@& -->
+
+<!-- https://xandercahutay1994.000webhostapp.com/LigPhilExam/resources/views/home.blade.php -->
+
+
+<!-- 
+    cell #
+    cahutayAlex199405
+ -->
 @endsection
