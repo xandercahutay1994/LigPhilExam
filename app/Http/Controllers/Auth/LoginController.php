@@ -47,18 +47,15 @@ class LoginController extends Controller
     */
     public function login(Request $request){
 
-        return redirect('/adminLists');
-        // if(Auth::attempt(['id' => $request->user_id, 'password' => $request->password])){
-        //     return redirect('/adminLists');    
-        // }else{
-        //     return redirect('/login')->with('error','Error');
-        // }
+        if(Auth::attempt(['id' => $request->user_id, 'password' => $request->password])){
+            return redirect('/adminLists');    
+        }else{
+            return redirect('/login')->with('error','Error');
+        }
     }
 
     public function logout(){
         Auth::guard('web')->logout();
-        return redirect('/adminLists');
-        
-        // return redirect('/login');
+        return redirect('/login');
     }
 }

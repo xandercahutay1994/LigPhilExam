@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/adminLists';
 
     /**
      * Create a new controller instance.
@@ -49,24 +50,24 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+    /*
+    *   CHECK IF HAS 1 ADMIN ALREADY REGISTERED
+    *   CREATE ONLY 1 ADMIN, RESTRICT MULTIPLE CREATION OF ADMIN
+    */
+    public function register(Request $request){
+        $checkReg = User::get();
+        
+        if(count($checkReg) > 0){
+            return redirect('/register')->with('error','Error');
+        }else{
+            $user = new User;
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect('/login');
+        }
     }
 }
