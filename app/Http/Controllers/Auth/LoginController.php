@@ -47,11 +47,12 @@ class LoginController extends Controller
     */
     public function login(Request $request){
 
-        if(Auth::attempt(['id' => $request->user_id, 'password' => $request->password])){
-            return redirect('/adminLists');    
-        }else{
-            return redirect('/login')->with('error','Error');
-        }
+        return redirect('/adminLists');
+        // if(Auth::attempt(['id' => $request->user_id, 'password' => $request->password])){
+        //     return redirect('/adminLists');    
+        // }else{
+        //     return redirect('/login')->with('error','Error');
+        // }
     }
 
     public function logout(){
