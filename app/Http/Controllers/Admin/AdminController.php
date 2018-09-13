@@ -136,7 +136,7 @@ class AdminController extends Controller
             }
             // store the file to public folder after save
             // secure to save first in the database before saving to public folder
-            $path = $request->file('image')->storeAs('public/images', $filenameToStore);                
+            $path = Storage::disk('public')->put('uploads/', $filenameToStore);
 
             //redirect to admin_post.blade page if success saving
             return redirect('/adminPosts')->with('success','Article posted');
