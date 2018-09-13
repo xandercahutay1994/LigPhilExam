@@ -120,6 +120,7 @@ class AdminController extends Controller
                 $post->image = $filenameToStore;
                 $post->title = $title;
                 $post->content = $inquiry;
+                $post->posted_at = Carbon::now('Asia/Manila')->toDateTimeString();
                 $post->save();
 
             }else{
