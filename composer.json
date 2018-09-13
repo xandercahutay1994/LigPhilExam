@@ -52,7 +52,10 @@
         "post-install-cmd": [
             "chmod -R 755 bootstrap\/cache",
             "php artisan cache:clear"
-        ]
+        ],
+        "post-install-cmd": [ 
+            "ln -sr storage/app/public public/storage" 
+        ],
     },
     "config": {
         "preferred-install": "dist",
