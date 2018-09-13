@@ -19,7 +19,7 @@
                     @foreach($allArticle as $key => $value)
                         <li class="archive-item">
                             <a href="{{ url('/adminPosts/' . $value->id ) }}" class="post-article">
-                                <time class="post-article-date" datetime="{{$value->posted_date}}">                    {{$value->posted_date}}
+                                <time class="post-article-date" datetime="{{$value->posted_at}}">                      {{ \Carbon\Carbon::parse($value->posted_at)->format('d-M-Y') }}
                                 </time>
                                 <h1 class="post-article-title">{{ $value->title }}</h1>
                             </a>

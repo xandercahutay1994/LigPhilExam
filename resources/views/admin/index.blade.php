@@ -21,8 +21,8 @@
 			                                <img src="{{ asset('/storage/images/' . $value->image) }}" alt="" class="card-image">
 			                                <div class="card-bottom">
 			                                    <h1 class="card-title">{{ $value->title }}</h1>
-			                                    <time class="card-date" datetime="{{$value->posted_date}}">
-			                                        {{$value->posted_date}}
+			                                    <time class="card-date" datetime="{{$value->posted_at}}">
+			                                        {{ \Carbon\Carbon::parse($value->posted_at)->format('d-M-Y')}}	
 			                                    </time>
 			                                </div>
 			                            </a>

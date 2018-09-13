@@ -9,6 +9,7 @@ use App\User;
 use App\Post;
 use DB;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -29,7 +30,7 @@ class AdminController extends Controller
     *   Date format is Month-Day-Year
     */
     public function getAllArticle(){
-        $getAllArticle = Post::select('*', DB::raw("DATE_FORMAT(posted_at, '%d-%b-%Y') as posted_date"))
+        $getAllArticle = Post::select('*')
                         ->orderBy('posted_at','desc')
                         ->paginate(5);
 
@@ -50,7 +51,7 @@ class AdminController extends Controller
     *   call getAllArticle method and pass to this function
     */
     public function adminLists(Request $request){
-        $listOfArticle = Post::select('*', DB::raw("DATE_FORMAT(posted_at, '%d-%b-%Y') as posted_date"))
+        $listOfArticle = Post::select('*')
                         ->orderBy('posted_at','desc')
                         ->get();
 
@@ -79,8 +80,9 @@ class AdminController extends Controller
     *   only display specific article post to the page
     */
     public function single(Request $request,$id){
-       $matchArticle = Post::select('*',DB::raw("DATE_FORMAT(posted_at, '%d-%b-%Y') as posted_date"))
-                       ->where('id',$id)->get();
+       $matchArticle = Post::select('*')
+                       ->where('id',$id)
+                       ->get();
 
         return view('admin.single')->with('matchArticle',$matchArticle);
     }

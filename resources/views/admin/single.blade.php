@@ -13,7 +13,9 @@
 	                <img src="{{ asset('/storage/images/' . $matchArticle[0]->image) }}" alt="" class="single-image">
 	                <div class="l-container u-clear">
 	                    <h1 class="single-title">{{ $matchArticle[0]->title }}</h1>
-	                    <time class="single-date" datetime="{{ $matchArticle[0]->posted_date }}">{{ $matchArticle[0]->posted_date }}</time>
+	                    <time class="single-date" datetime="{{ $matchArticle[0]->posted_at }}">
+	                    	{{ \Carbon\Carbon::parse($matchArticle[0]->posted_at)->format('d-M-Y') }}
+	                    </time>
 	                    <p class="single-desc">
 	                    	{{ $matchArticle[0]->content }}
 	                    </p>
