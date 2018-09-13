@@ -11,9 +11,9 @@
 |
 */
 
-Auth::routes();
-// Logout
-Route::get('/logout', ['as' => 'logout', 'uses' =>'Auth\LoginController@logout']);
+// Auth::routes();
+// // Logout
+// Route::get('/logout', ['as' => 'logout', 'uses' =>'Auth\LoginController@logout']);
 
 /**
 *	GROUPING ADMIN ROUTES
