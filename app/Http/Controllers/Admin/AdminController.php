@@ -7,8 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Response;
-use Image;
 
 class AdminController extends Controller
 {
@@ -174,18 +172,8 @@ class AdminController extends Controller
     public function show($id)
     {
         $showArticle = Post::select('*')
-        // $picture = Post::findOrFail($id);
-        // $pic = Image::make($picture->image);
                        ->where('id',$id)
                        ->get();
-        // $response = Response::make($pic->encode('jpeg'));
-
-        // //setting content-type
-        // $response->header('Content-Type', 'image/jpeg');
-
-        // return $response;
-        // return view('admin.single')->with('response',$response);
-
         return view('admin.single')->with('showArticle',$showArticle);
     }
 
