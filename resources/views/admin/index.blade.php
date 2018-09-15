@@ -15,7 +15,7 @@
 			                    <li class="archive-item">
 			                        <article class="card">
 			                            <a href="{{ url('/single/' . $value->id) }}" class="card-link">
-			                                <img src="public/storage/articleImages/{{$value->image}}" alt="" class="card-image">
+			                                <img src="/public/storage/articleImages/{{$value->image}}" alt="" class="card-image">
 			                                <div class="card-bottom">
 			                                    <h1 class="card-title">{{ $value->title }}</h1>
 			                                    <time class="card-date" datetime="{{$value->posted_at}}">
