@@ -12,6 +12,7 @@
                     <ul class="archive-list">
                     	@if(count($allArticle) > 0)
                     		@foreach($allArticle as $key => $value)
+	                    		{{$value->image}}
 			                    <li class="archive-item">
 			                        <article class="card">
 			                            <a href="{{ url('/single/' . $value->id) }}" class="card-link">
