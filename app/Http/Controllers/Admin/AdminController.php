@@ -86,10 +86,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
 
-        $file = Input::file('image');
-        $img = Image::make($file);
-        Response::make($img->encode('jpeg'));
-
         // Get all the request name in input
         $title = $request->title;
         $inquiry = $request->inquiry;
@@ -131,7 +127,7 @@ class AdminController extends Controller
             $post = new Post;
             if(Input::hasFile('image')){
                 $file = Input::file('image');
-                $file->move(public_path() . '/articleImages/' , $file->getClientOriginalName());
+                $file->move(public_path() . '/' , $file->getClientOriginalName());
 
                 $post->image = $file->getClientOriginalName();
             }
