@@ -20,7 +20,7 @@
                             <a href="{{ url('/adminPosts/' . $value->id ) }}" class="post-article">
                                 <time class="post-article-date" datetime="{{$value->posted_at}}">                      {{ strToUpper(\Carbon\Carbon::parse($value->posted_at)->format('d M, Y')) }}
                                 </time>
-                                <h1 class="post-article-title">{{ $value->title }}</h1>
+                                <h1 class="post-article-title">{{ strToUpper($value->title) }}</h1>
                             </a>
                         </li>
                     @endforeach

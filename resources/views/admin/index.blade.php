@@ -17,7 +17,7 @@
 			                            <a href="{{ url('/single/' . $value->id) }}" class="card-link">
 			                                <img src="{{ asset('/articleImages/' . $value->image) }}" alt="" class="card-image">
 			                                <div class="card-bottom">
-			                                    <h1 class="card-title">{{ $value->title }}</h1>
+			                                    <h1 class="card-title">{{ strToUpper($value->title) }}</h1>
 			                                    <time class="card-date" datetime="{{$value->posted_at}}">
 			                                    	{{ strToUpper(\Carbon\Carbon::parse($value->posted_at)->format('d M, Y')) }}
 			                                    </time>
