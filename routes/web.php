@@ -22,15 +22,15 @@ Route::prefix('/')->group(function(){
 	/**
 	*	ALL GET REQUEST
 	*/	
-	Route::get('index', ['as' => 'index', 'uses' => 'Admin\AdminsController@index']);
-	Route::get('archive', ['as' => 'archive', 'uses' => 'Admin\AdminsController@archive']);
-	Route::get('single/{id}', ['as' => 'single', 'uses' => 'Admin\AdminsController@show']); 
-	Route::get('adminPosts', ['as' => 'create', 'uses' => 'Admin\AdminsController@create']);
-	Route::get('adminPosts/{id}', ['as' => 'edit', 'uses' => 'Admin\AdminsController@edit']);
-	Route::get('adminLists', ['as' => 'adminLists', 'uses' =>'Admin\AdminsController@adminLists']);
+	Route::get('index', ['as' => 'index', 'uses' => 'Admin\AdminController@index']); // article list with images
+	Route::get('archive', ['as' => 'archive', 'uses' => 'Admin\AdminController@archive']); // paginated article
+	Route::get('single/{id}', ['as' => 'single', 'uses' => 'Admin\AdminController@show']); //specific article
+	Route::get('adminPosts', ['as' => 'create', 'uses' => 'Admin\AdminController@create']); //saving new article
+	Route::get('adminPosts/{id}', ['as' => 'edit', 'uses' => 'Admin\AdminController@edit']); //update existing article
+	Route::get('adminLists', ['as' => 'adminLists', 'uses' =>'Admin\AdminController@adminLists']); //list of article
 
 	/**
 	*	ALL POST REQUEST
 	*/
-	Route::post('postSubmit', 'Admin\AdminsController@store'); // save post article
+	Route::post('postSubmit', 'Admin\AdminController@store'); // save post article
 });
