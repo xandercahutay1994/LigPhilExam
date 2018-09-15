@@ -125,8 +125,8 @@ class AdminController extends Controller
             $post->content = $inquiry;
             $post->posted_at = $curr_date;
 
+            // store the file to public folder after save
             if($post->save())
-                // store the file to public folder after save
                 $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt);
 
         }else{
@@ -137,7 +137,7 @@ class AdminController extends Controller
             // check if there is an image then update
             if($request->hasFile('image')){
                 $hasId->image = $filenameToStore;
-                $path = $request->file('image')->storeAs('public/articleImages', $filenameToStore); //store image
+                $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt); //store image
             }
             $hasId->title = $title;
             $hasId->content = $inquiry;
