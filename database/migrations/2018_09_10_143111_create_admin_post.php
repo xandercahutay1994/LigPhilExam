@@ -15,10 +15,10 @@ class CreateAdminPost extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('image');
+            $table->string('image');    
             $table->string('title');
             $table->mediumText('content');    
-            $table->timestamp('posted_at');
+            $table->date('posted_at');
         });
     }
 

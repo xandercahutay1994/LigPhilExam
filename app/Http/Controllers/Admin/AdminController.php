@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
+use Image;
 
 class AdminController extends Controller
 {
@@ -40,7 +43,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index')->with('allArticle', $this->getAllArticle());
+        $allArticle = Post::all();
+        return view('admin.index')->with('allArticle', $allArticle);
     }
 
     /*
@@ -83,6 +87,11 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+
+        $file = Input::file('image');
+        $img = Image::make($file);
+        Response::make($img->encode('jpeg'));
+
         // Get all the request name in input
         $title = $request->title;
         $inquiry = $request->inquiry;
@@ -106,44 +115,51 @@ class AdminController extends Controller
             ]);
         }
 
-        // Check if has file image in the input
-        if($request->hasFile('image')){
-            $filenameWithExt = $request->file('image')->getClientOriginalName(); //get filename with extension
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $rn = str_random(5); // avoid duplication of image in folder
-            $extension = $request->file('image')->getClientOriginalExtension();
-            // $filenameToStore =  $filename . '-' . $rn . '-' . time() . '.' . $extension; //example: ligPhil-321d2.png
-            $filenameToStore = $filename . '.'  . $extension;
-        }
+
+
+        // // Check if has file image in the input
+        // if($request->hasFile('image')){
+        //     $filenameWithExt = $request->file('image')->getClientOriginalName(); //get filename with extension
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $rn = str_random(5); // avoid duplication of image in folder
+        //     $extension = $request->file('image')->getClientOriginalExtension();
+        //     // $filenameToStore =  $filename . '-' . $rn . '-' . time() . '.' . $extension; //example: ligPhil-321d2.png
+        //     $filenameToStore = $filename . '.'  . $extension;
+        // }
      
-        // Check if newly article, if no id
-        if(empty($user_id)){
-            // Instantiate post for saving
+        // // Check if newly article, if no id
+        // if(empty($user_id)){
+        //     // Instantiate post for saving
             $post = new Post;
-            $post->image = $filenameWithExt;
-            $post->title = $title;
-            $post->content = $inquiry;
-            $post->posted_at = $curr_date;
+            if(Input::hasFile('image')){
+                $file = Input::file('image');
+                $file->move(public_path() . '/articleImages/' , $file->getClientOriginalName());
 
-            // store the file to public folder after save
-            if($post->save())
-                $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt);
-
-        }else{
-
-            // If already exist, update data
-            $hasId = Post::find($user_id);
-
-            // check if there is an image then update
-            if($request->hasFile('image')){
-                $hasId->image = $filenameToStore;
-                $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt); //store image
+                $post->image = $file->getClientOriginalName();
             }
-            $hasId->title = $title;
-            $hasId->content = $inquiry;
-            $hasId->posted_at = $curr_date;
-            $hasId->save(); //update data
-        }
+            $post->title = $title;
+            $post->content = $inquiry; 
+            $post->posted_at = $curr_date;
+            $post->save();
+        //     // store the file to public folder after save
+        //     // if($post->save())
+        //     //     $path = $request->file('image')->storeAs('public/assets/images/articleImages', $filenameWithExt);
+
+        // }else{
+
+        //     // If already exist, update data
+        //     $hasId = Post::find($user_id);
+
+        //     // check if there is an image then update
+        //     if($request->hasFile('image')){
+        //         $hasId->image = $filenameToStore;
+        //         $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt); //store image
+        //     }
+        //     $hasId->title = $title;
+        //     $hasId->content = $inquiry;
+        //     $hasId->posted_at = $curr_date;
+        //     $hasId->save(); //update data
+        // }
 
         //redirect to admin_post.blade page if success saving
         return redirect('/adminPosts')->with('success','Article posted');
@@ -158,8 +174,17 @@ class AdminController extends Controller
     public function show($id)
     {
         $showArticle = Post::select('*')
+        // $picture = Post::findOrFail($id);
+        // $pic = Image::make($picture->image);
                        ->where('id',$id)
                        ->get();
+        // $response = Response::make($pic->encode('jpeg'));
+
+        // //setting content-type
+        // $response->header('Content-Type', 'image/jpeg');
+
+        // return $response;
+        // return view('admin.single')->with('response',$response);
 
         return view('admin.single')->with('showArticle',$showArticle);
     }
