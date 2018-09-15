@@ -33,7 +33,6 @@ class AdminController extends Controller
         return $getAllArticle;
     }
 
-
     /**
      * Display a listing of the resource 'with images'. 
      * 
@@ -124,18 +123,18 @@ class AdminController extends Controller
             $post->save();
         }else{
             // If already exist, update data
-            $idExist = Post::find($user_id);
+            $hasId = Post::find($user_id);
 
             // check if there is an image then update
             if($request->hasFile('image')){
                 $file = Input::file('image');
                 $file->move(public_path() . '/articleImages/' , $rn . '-' . time() . '-' . $file->getClientOriginalName()); //example 93kwi-232932-ex.jpeg
 
-                $idExist->image = $rn . '-' . time() . '-' . $file->getClientOriginalName(); //avoid duplication
+                $hasId->image = $rn . '-' . time() . '-' . $file->getClientOriginalName(); //avoid duplication
             }
-            $idExist->title = $title;
-            $idExist->content = $inquiry;
-            $idExist->save(); //update data
+            $hasId->title = $title;
+            $hasId->content = $inquiry;
+            $hasId->save(); //update data
         }
 
         //redirect to admin_post.blade page if success saving
@@ -153,6 +152,7 @@ class AdminController extends Controller
         $showArticle = Post::select('*')
                        ->where('id',$id)
                        ->get();
+
         return view('admin.single')->with('showArticle',$showArticle);
     }
 

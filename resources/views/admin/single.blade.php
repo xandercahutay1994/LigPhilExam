@@ -11,8 +11,8 @@
 	                <img src="{{ asset('/articleImages/' . $showArticle[0]->image) }}" alt="" class="single-image">
 	                <div class="l-container u-clear">
 	                    <h1 class="single-title">{{ strToUpper($showArticle[0]->title) }}</h1>
-	                    <time class="single-date" datetime="{{ $showArticle[0]->updated_at }}">
-			                {{ strToUpper(\Carbon\Carbon::parse($showArticle[0]->updated_at)->format('d M, Y')) }}
+	                    <time class="single-date" datetime="{{ $showArticle[0]->created_at }}">
+			                {{ strToUpper(\Carbon\Carbon::parse($showArticle[0]->created_at)->format('d M, Y')) }}
 	                    </time>
 	                    <p class="single-desc">
 	                    	{{ $showArticle[0]->content }}
