@@ -12,15 +12,14 @@
                     <ul class="archive-list">
                     	@if(count($allArticle) > 0)
                     		@foreach($allArticle as $key => $value)
-                    		{{$value->image}}
 			                    <li class="archive-item">
 			                        <article class="card">
 			                            <a href="{{ url('/single/' . $value->id) }}" class="card-link">
-			                                <img src="{{ asset($value->image) }}" alt="" class="card-image">
+			                                <img src="{{ asset('/articleImages/' . $value->image) }}" alt="" class="card-image">
 			                                <div class="card-bottom">
 			                                    <h1 class="card-title">{{ $value->title }}</h1>
 			                                    <time class="card-date" datetime="{{$value->posted_at}}">
-			                                        {{ \Carbon\Carbon::parse($value->posted_at)->format('d-M-Y')}}	
+			                                    	{{ strToUpper(\Carbon\Carbon::parse($value->posted_at)->format('d M, Y')) }}
 			                                    </time>
 			                                </div>
 			                            </a>

@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/adminLists';
+    protected $redirectTo = '/index';
 
     /**
     * Create a new controller instance.
@@ -48,7 +48,7 @@ class LoginController extends Controller
     public function login(Request $request){
 
         if(Auth::attempt(['id' => $request->user_id, 'password' => $request->password])){
-            return redirect('/adminLists');    
+            return redirect('/index');    
         }else{
             return redirect('/login')->with('error','Error');
         }

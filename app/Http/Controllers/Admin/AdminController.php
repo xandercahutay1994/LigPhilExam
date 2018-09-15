@@ -41,8 +41,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $allArticle = Post::all();
-        return view('admin.index')->with('allArticle', $allArticle);
+        return view('admin.index')->with('allArticle', $this->getAllArticle());
     }
 
     /*
@@ -91,6 +90,7 @@ class AdminController extends Controller
         $inquiry = $request->inquiry;
         $user_id = $request->user_id;
         $curr_date = Carbon::now('Asia/Manila')->toDateTimeString(); //get current_date
+        $rn = str_random(5); // random char to avoid duplication of image in folder
 
         /*
         *  Validate in backend if all input is not empty.
@@ -108,52 +108,37 @@ class AdminController extends Controller
                 'inquiry' => 'required'
             ]);
         }
-
-
-
-        // // Check if has file image in the input
-        // if($request->hasFile('image')){
-        //     $filenameWithExt = $request->file('image')->getClientOriginalName(); //get filename with extension
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //     $rn = str_random(5); // avoid duplication of image in folder
-        //     $extension = $request->file('image')->getClientOriginalExtension();
-        //     // $filenameToStore =  $filename . '-' . $rn . '-' . time() . '.' . $extension; //example: ligPhil-321d2.png
-        //     $filenameToStore = $filename . '.'  . $extension;
-        // }
-     
-        // // Check if newly article, if no id
-        // if(empty($user_id)){
-        //     // Instantiate post for saving
+        
+        // Check if newly article, if no id
+        if(empty($user_id)){
+            // Instantiate post for saving
             $post = new Post;
             if(Input::hasFile('image')){
                 $file = Input::file('image');
-                $file->move(public_path() . '/' , $file->getClientOriginalName());
+                $file->move(public_path() . '/articleImages/' , $rn . '-' . time() . '-' . $file->getClientOriginalName()); //example 93kwi-232932-ex.jpeg
 
-                $post->image = $file->getClientOriginalName();
+                $post->image = $rn . '-' . time() . '-' . $file->getClientOriginalName(); //avoid duplication
             }
             $post->title = $title;
             $post->content = $inquiry; 
             $post->posted_at = $curr_date;
             $post->save();
-        //     // store the file to public folder after save
-        //     // if($post->save())
-        //     //     $path = $request->file('image')->storeAs('public/assets/images/articleImages', $filenameWithExt);
+        }else{
+            // If already exist, update data
+            $idExist = Post::find($user_id);
 
-        // }else{
+            // check if there is an image then update
+            if($request->hasFile('image')){
+                $file = Input::file('image');
+                $file->move(public_path() . '/articleImages/' , $rn . '-' . time() . '-' . $file->getClientOriginalName()); //example 93kwi-232932-ex.jpeg
 
-        //     // If already exist, update data
-        //     $hasId = Post::find($user_id);
-
-        //     // check if there is an image then update
-        //     if($request->hasFile('image')){
-        //         $hasId->image = $filenameToStore;
-        //         $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt); //store image
-        //     }
-        //     $hasId->title = $title;
-        //     $hasId->content = $inquiry;
-        //     $hasId->posted_at = $curr_date;
-        //     $hasId->save(); //update data
-        // }
+                $idExist->image = $rn . '-' . time() . '-' . $file->getClientOriginalName(); //avoid duplication
+            }
+            $idExist->title = $title;
+            $idExist->content = $inquiry;
+            $idExist->posted_at = $curr_date;
+            $idExist->save(); //update data
+        }
 
         //redirect to admin_post.blade page if success saving
         return redirect('/adminPosts')->with('success','Article posted');

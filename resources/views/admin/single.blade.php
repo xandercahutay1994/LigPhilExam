@@ -8,11 +8,11 @@
         <div class="l-main-block"></div>
             <div class="single">
             	@if(count($showArticle) > 0)
-	                <img src="{{ asset($showArticle[0]->image) }}" alt="" class="single-image">
+	                <img src="{{ asset('/articleImages/' . $showArticle[0]->image) }}" alt="" class="single-image">
 	                <div class="l-container u-clear">
 	                    <h1 class="single-title">{{ $showArticle[0]->title }}</h1>
 	                    <time class="single-date" datetime="{{ $showArticle[0]->posted_at }}">
-	                    	{{ \Carbon\Carbon::parse($showArticle[0]->posted_at)->format('d-M-Y') }}
+			                {{ strToUpper(\Carbon\Carbon::parse($showArticle[0]->posted_at)->format('d M, Y')) }}
 	                    </time>
 	                    <p class="single-desc">
 	                    	{{ $showArticle[0]->content }}
@@ -25,6 +25,10 @@
 							</a>
 	                    </div>
 	                </div>
+	            @else
+	            	<div class="l-container u-clear">
+	            		<p class="sns single-desc">No article post</p>
+	            	</div>
                 @endif
             </div>
         </div>

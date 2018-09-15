@@ -18,7 +18,7 @@
                     @foreach($listOfArticle as $key => $value)
                         <li class="archive-item">
                             <a href="{{ url('/adminPosts/' . $value->id ) }}" class="post-article">
-                                <time class="post-article-date" datetime="{{$value->posted_at}}">                      {{ \Carbon\Carbon::parse($value->posted_at)->format('d-M-Y') }}
+                                <time class="post-article-date" datetime="{{$value->posted_at}}">                      {{ strToUpper(\Carbon\Carbon::parse($value->posted_at)->format('d M, Y')) }}
                                 </time>
                                 <h1 class="post-article-title">{{ $value->title }}</h1>
                             </a>
@@ -26,7 +26,9 @@
                     @endforeach
                 @else
                     <li class="archive-item sns">
-                        <h1 class="post-article-title"> No article posted </h1>
+                        <a href="#" class="post-article">
+                            <h1 class="post-article-title"> No article posted </h1>
+                        </a>
                     </li>
                 @endif       
             </ul>
