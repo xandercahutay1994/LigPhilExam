@@ -27,7 +27,7 @@ class AdminController extends Controller
     */
     public function getAllArticle(){
         $getAllArticle = Post::select('*')
-                        ->orderBy('posted_at','desc')
+                        ->orderBy('updated_at','desc')
                         ->paginate(5);
 
         return $getAllArticle;
@@ -51,7 +51,7 @@ class AdminController extends Controller
     */
     public function adminLists(Request $request){
         $listOfArticle = Post::select('*')
-                        ->orderBy('posted_at','desc')
+                        ->orderBy('updated_at','desc')
                         ->get();
 
         return view('admin.admin_list')->with('listOfArticle', $listOfArticle);
@@ -121,7 +121,6 @@ class AdminController extends Controller
             }
             $post->title = $title;
             $post->content = $inquiry; 
-            $post->posted_at = $curr_date;
             $post->save();
         }else{
             // If already exist, update data
@@ -136,7 +135,6 @@ class AdminController extends Controller
             }
             $idExist->title = $title;
             $idExist->content = $inquiry;
-            $idExist->posted_at = $curr_date;
             $idExist->save(); //update data
         }
 

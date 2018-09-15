@@ -7,8 +7,6 @@ class Post extends Model
 {
 	protected $table = 'posts';
     public $primaryKey = 'id';
-    public $timestamps = false;	
-    protected $dates = ['your_date'];
 
     /*
     *   A POST CAN ONLY HAVE 1 ADMIN REGISTER

@@ -18,8 +18,8 @@
 			                                <img src="{{ asset('/articleImages/' . $value->image) }}" alt="" class="card-image">
 			                                <div class="card-bottom">
 			                                    <h1 class="card-title">{{ strToUpper($value->title) }}</h1>
-			                                    <time class="card-date" datetime="{{$value->posted_at}}">
-			                                    	{{ strToUpper(\Carbon\Carbon::parse($value->posted_at)->format('d M, Y')) }}
+			                                    <time class="card-date" datetime="{{$value->updated_at}}">
+			                                    	{{ strToUpper(\Carbon\Carbon::parse($value->updated_at)->format('d M, Y')) }}
 			                                    </time>
 			                                </div>
 			                            </a>
