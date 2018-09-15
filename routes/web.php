@@ -22,14 +22,15 @@ Route::prefix('/')->group(function(){
 	/**
 	*	ALL GET REQUEST
 	*/	
-	Route::get('index', ['as' => 'index', 'uses' => 'Admin\AdminController@index']);
-	Route::get('archive', ['as' => 'archive', 'uses' => 'Admin\AdminController@archive']);
-	Route::get('single/{id}', ['as' => 'single', 'uses' => 'Admin\AdminController@single']);
-	Route::get('adminPosts/{id?}', ['as' => 'adminPosts', 'uses' => 'Admin\AdminController@adminPosts']);
-	Route::get('adminLists', ['as' => 'adminLists', 'uses' =>'Admin\AdminController@adminLists']);
+	Route::get('index', ['as' => 'index', 'uses' => 'Admin\AdminsController@index']);
+	Route::get('archive', ['as' => 'archive', 'uses' => 'Admin\AdminsController@archive']);
+	Route::get('single/{id}', ['as' => 'single', 'uses' => 'Admin\AdminsController@show']); 
+	Route::get('adminPosts', ['as' => 'create', 'uses' => 'Admin\AdminsController@create']);
+	Route::get('adminPosts/{id}', ['as' => 'edit', 'uses' => 'Admin\AdminsController@edit']);
+	Route::get('adminLists', ['as' => 'adminLists', 'uses' =>'Admin\AdminsController@adminLists']);
 
 	/**
 	*	ALL POST REQUEST
 	*/
-	Route::post('postSubmit', 'Admin\AdminController@postSubmit'); // save post article
+	Route::post('postSubmit', 'Admin\AdminsController@store'); // save post article
 });

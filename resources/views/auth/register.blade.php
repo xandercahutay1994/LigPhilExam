@@ -1,8 +1,8 @@
 @extends('layouts.header')
 
 @section('content')
+    <!-- start l-contents -->
     <div class="l-container u-clear">
-
         <!--start l-main-->
         <main class="l-main js-main">
             <div class="l-main-block"></div>
@@ -27,22 +27,6 @@
             </form>
         </main>
         <!--end l-main-->
-
     </div>
     <!--end l-contents-->
-<!-- 
-    <script type="text/javascript">
-        $.ajax({
-            url: '/ligphilexam/public/index.php/checkReg',
-            type: 'GET',
-            dataType: 'JSON',
-            success:function(data){
-                console.log(data);
-            },
-            error: function(error){
-                console.log('error');
-            }
-        });
-
-    </script> -->
 @endsection

@@ -17,7 +17,7 @@ class CreateAdminPost extends Migration
             $table->increments('id');
             $table->string('image');
             $table->string('title');
-            $table->string('content');    
+            $table->mediumText('content');    
             $table->timestamp('posted_at');
         });
     }

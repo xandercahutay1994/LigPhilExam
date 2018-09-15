@@ -3,7 +3,6 @@
 @section('content')
     <!--start l-contents-->
     <div class="l-container u-clear">
-
         <!--start l-main-->
         <main class="l-main js-main">
             <div class="l-main-block"></div>
@@ -13,6 +12,7 @@
                 <input type="text" id="user_id" name="user_id" class="input input-text">
                 <label for="password" class="form-title">PASSWORD</label>
                 <input type="password" id="password" name="password" class="input input-text">
+                <!-- Error Message -->
                 <div class="nav-item">
                     @include('inc.messages')
                 </div>
@@ -25,16 +25,17 @@
             </form>
         </main>
         <!--end l-main-->
-
     </div>
     <!--end l-contents-->
     
+    <!-- events handler -->
     <script type="text/javascript">
         $(document).ready(function(){
             $('#submit').on('click',function(e){
-                if($('#user_id').val() == "" && $('#password').val() == ""){
+                // if all input is empty
+                if($('#user_id').val() == "" || $('#password').val() == ""){
                     $('.nav-item').html('Error');
-                    e.preventDefault();
+                    e.preventDefault(); //prevent for submitting
                 }
             });
         });   

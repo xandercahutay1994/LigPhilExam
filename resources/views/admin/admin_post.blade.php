@@ -11,30 +11,30 @@
                 {{ csrf_field() }}
                 <label for="image" class="form-title">EYE CATCH IMAGE
                     <div class="form-file u-clear">
-                        {{ $id ? $id->image : '' }}
+                        {{ Route::current()->getName() == 'edit' ?  $id->image : null }}
                         <span class="form-file-button">UPLOAD</span>
                     </div>
                 </label>
                 <input type="file" name="image" id="image" class="input input-image">
                 <label for="title" class="form-title">TITLE</label>
                 <div class="form-body">
-                    <input type="text" id="title" name="title" class="input input-text" onkeypress="textOnly(event)" value="{{ $id ? $id->title : '' }}">
+                    <input type="text" id="title" name="title" class="input input-text" onkeypress="textOnly(event)" value="{{ Route::current()->getName() == 'edit' ?  $id->title : null }}">
                 </div>
                 <label for="contents" class="form-title">CONTENTS</label>
                 <div class="form-textarea">
-                    <textarea name="inquiry" id="inquiry" cols="30" rows="10" class="input input-contents" onkeypress="textOnly(event)">{{ $id ? $id->content : '' }}</textarea>
+                    <textarea name="inquiry" id="inquiry" cols="30" rows="10" class="input input-contents" onkeypress="textOnly(event)">{{ Route::current()->getName() == 'edit' ?  $id->content : null }}</textarea>
                 </div>
                 <!-- Error Message -->
                 <div class="nav-item">
                     @include('inc.messages')
                 </div>
-                <input type="hidden" name="user_id" value="{{ $id ? $id->id : null }}">
+                <input type="hidden" id="user_id" name="user_id" value="{{ Route::current()->getName() == 'edit' ?  $id->id : null }}">
                 <label for="submit" class="form-button">
                     <div class="button">
 					    <p class="button-text">Submit</p>
 					</div>
                 </label>
-                <input type="submit" id="submit" class="input input-submit">
+                <input type="submit" id="submit" class="input input-submit" onsubmit="textOnly(event)">
                 <a href="{{ url('/adminLists') }}" class="form-button">
                     <div class="button">
 					    <p class="button-text">Back</p>
@@ -46,15 +46,14 @@
 
     </div>
     <!--end l-contents-->
-    <!-- script -->
+    <!-- events handler script JQUERY -->
     <script type="text/javascript">
 
     	$(document).ready(function(){
             var imageLength = $("#image")[0].files.length;
 
-            // Check if image length is not empty and append data to FORM-FILE DIV
             $('#image').on('change', function(){
-                // check if empty
+                // Check if image length is not empty and append data to FORM-FILE DIV
                 if(imageLength == 0){
                     $('.form-file').html(''); //empty the div first before appending new one
                     $('.form-file').append($('#image').val());  
@@ -64,21 +63,33 @@
             });
 
     		// Triggers when submit button is clicked
-            // Form validation
     		$('.form').on('submit',function(e){
-                var image = $("#image")[0].files.length;
-	    		// Check if input fields are not empty
-	    		if(image == "" || $('#title').val() == "" || $('#inquiry').val() == ""){
-	    			$('.nav-item').html('Error'); 
-	    			e.preventDefault(); 
-	    		}
+
+                // ============================================================================================
+                // Check first if there is no ID in URL, if true check all input fields if not empty
+                // if false check only title and contents if empty or not, if empty prevent form for submitting
+                // ============================================================================================
+	    		if($('#user_id').val() == ""){
+                    var image = $("#image")[0].files.length;
+                    if(image == "" || $('#title').val() == "" || $('#inquiry').val() == ""){
+                        $('.nav-item').html('Error'); 
+                        e.preventDefault(); 
+                    }
+                }else{
+                   if($('#title').val() == "" || $('#inquiry').val() == ""){
+                        $('.nav-item').html('Error'); 
+                        e.preventDefault(); 
+                    }
+                }   
 	    	});
 	    });
 
-        // function to check if input is text only
+        // =========================================
+        // Function to check if input is text only
+        // =========================================
         function textOnly(event){
             // g = global, i = allow uppercase, \s = allow spaces
-            var regexp = /[\sa-z-=!@#$%^&*()_+.,<>/?]/gi;
+            var regexp = /[\sa-z]/gi;
             var ch = String.fromCharCode(event.which);
             if(!(regexp.test(ch)))
                 event.preventDefault();

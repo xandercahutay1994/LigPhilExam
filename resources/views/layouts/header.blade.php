@@ -38,7 +38,7 @@
             <div class="for-old">お使いのOS・ブラウザでは、本サイトを適切に閲覧できない可能性があります。最新のブラウザをご利用ください。</div>
 
             <input type="hidden" value="./" id="js-base-url">
-
+            <!-- start l-wrap -->
             <div class="l-wrap js-wrap">
                 <!--start header-->
                 <header class="l-header l-header-admin js-header">
@@ -66,15 +66,14 @@
                     </div>
                 </header>
                 <!--end header-->
-
                 <!-- get content of all the pages who uses this layout -->
                 @yield('content')
                 <!-- end of yield -->
-                
+            </div>
+            <!-- end l-wrap -->
             <!--footer ここから-->
             <footer class="l-footer l-footer-admin">
-                <!-- GET CURRENT ROUTE AND CHECK IF MATCH ROUTEIN WEB.API -->
-                
+                <!-- GET CURRENT ROUTE AND CHECK IF MATCH ROUTE IN WEB.PHP -->
                 @if(Route::current()->getName() == 'index' || Route::current()->getName() == 'archive' ||       Route::current()->getName() == 'single')
                     <div class="l-footer-button">
                         <a class="page-top js-scroll" href="#js-body">

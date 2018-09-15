@@ -3,7 +3,6 @@
 @section('content')
     <!--start l-contents-->
     <div class="l-container u-clear">
-
         <!--start l-main-->
         <main class="l-main js-main">
             <div class="l-main-block"></div>
@@ -14,9 +13,9 @@
             </a>
             <ul class="archive archive-admin">
                 <!-- check if there is an article -->
-                @if(count($allArticle) > 0)
+                @if(count($listOfArticle) > 0)
                     <!-- Loop all posted article -->
-                    @foreach($allArticle as $key => $value)
+                    @foreach($listOfArticle as $key => $value)
                         <li class="archive-item">
                             <a href="{{ url('/adminPosts/' . $value->id ) }}" class="post-article">
                                 <time class="post-article-date" datetime="{{$value->posted_at}}">                      {{ \Carbon\Carbon::parse($value->posted_at)->format('d-M-Y') }}
@@ -33,7 +32,6 @@
             </ul>
         </main>
         <!--end l-main-->
-
     </div>
     <!--end l-contents-->
 @endsection
