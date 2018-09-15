@@ -112,21 +112,22 @@ class AdminController extends Controller
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $rn = str_random(5); // avoid duplication of image in folder
             $extension = $request->file('image')->getClientOriginalExtension();
-            $filenameToStore =  $filename . '-' . $rn . '-' . time() . '.' . $extension; //example: ligPhil-321d2.png
+            // $filenameToStore =  $filename . '-' . $rn . '-' . time() . '.' . $extension; //example: ligPhil-321d2.png
+            $filenameToStore = $filename . '.'  . $extension;
         }
      
         // Check if newly article, if no id
         if(empty($user_id)){
             // Instantiate post for saving
             $post = new Post;
-            $post->image = $filenameToStore;
+            $post->image = $filenameWithExt;
             $post->title = $title;
             $post->content = $inquiry;
             $post->posted_at = $curr_date;
 
             if($post->save())
                 // store the file to public folder after save
-                $path = $request->file('image')->storeAs('public/articleImages', $filenameToStore);
+                $path = $request->file('image')->storeAs('public/articleImages', $filenameWithExt);
 
         }else{
 

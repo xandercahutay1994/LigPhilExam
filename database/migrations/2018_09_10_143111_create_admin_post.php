@@ -15,7 +15,7 @@ class CreateAdminPost extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
+            $table->binary('image');
             $table->string('title');
             $table->mediumText('content');    
             $table->timestamp('posted_at');
