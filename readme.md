@@ -10,6 +10,7 @@
 <p> <b> /single/{id} </b> </p>
 <p> <b> /adminPosts </b> </p>
 <p> <b> /adminLists </b> </p>
+##
 
 ## REGISTER PAGE 
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/register </p>
@@ -27,7 +28,7 @@
 </p>
 
 ## INDEX PAGE, ARCHIVE PAGE 
-<p> -> Before you can navigate to this pages make sure you are already login </p>
+<p> -> Before you can navigate to this pages make sure you are already login. </p>
 <p>
     This page lists all the articles posted with images and it shows only the latest 5 articles. Scroll down and you will see a "MORE" button, try clicking it and it will go to http://ligphilexamherokuapp.herokuapp.com/public/index.php/archive. The archive page lists all the articles posted sort by date and maximum of 5 articles per page, you can access the rest of articles through pagination at the bottom of the page. 
 </p>
