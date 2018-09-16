@@ -38,7 +38,7 @@
 
 <p> Note: In "/adminLists" page, the articles that are displayed there are linked to "/adminPosts" page where you can edit the existing article that you clicked. </p>
 
-<p> <b> List of URL's <b> </p>
+<p> <b> LIST of URL's </b> </p>
 <p> <b> ligphilexamherokuapp.herokuapp.com/public/index.php </b> </p>
 <p> <b> /register </b> </p>
 <p> <b> /login </b> </p>
@@ -47,6 +47,7 @@
 <p> <b> /single/{id} </b> </p>
 <p> <b> /adminPosts </b> </p>
 <p> <b> /adminLists </b> </p>
+
 
 <p> Hopefully you understand my details, thank you so much </p>
 
