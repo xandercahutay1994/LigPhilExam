@@ -1,6 +1,6 @@
 <p> <b> REGISTER PAGE </b> </p>
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/register </p>
-<p> This page allows only 1 admin to be registered. If no admin has been registered, you only have to fill in the password input. Because it restrict only to create 1 admin, so the ID # you will be using when you want to login is "1". I used auto-increment in the database. <p>
+<p> This page allows only 1 admin to be registered. If no admin has been registered, you only have to fill in the password input. Because it restrict only to create 1 admin, so the ID # you will be using when you want to login is "1". I used auto-increment in the database. If succcessfully registered it will navigate automatically to Login Page else it will output a "ERROR" message. <p>
 <p>
  Note: you can't edit/delete your account in this page because this is intended only for registration of 1 admin. If you already have an account just skip this and go to Log-In page.
 </p>
@@ -35,6 +35,9 @@
 <p> In "adminPost" you will see a "BACK" button, try to clicked it and you will be redirected to "adminList" http://ligphilexamherokuapp.herokuapp.com/public/index.php/adminLists . AdminLists page displays all articles without images that have been posted without an image and limit per page, it basically shows all the data posted in database sorted by date. </p> <p> "New Article" button will let you go to "/adminPosts" page which is you can add/save new article.<p>
 
 <p> Note: In "/adminLists" page, the articles that are displayed there are linked to "/adminPosts" page where you can edit the existing article that you clicked. </p>
+
+<p> <b> ADMINLIST PAGE </b> </p>
+<p> Just change the URL to this http://ligphilexamherokuapp.herokuapp.com/public/index.php/logout this logout your account, after that it will redirect to Log-in page "/login" </p>
 
 <p> <b> LIST of URL's </b> </p>
 <p> <b> "ligphilexamherokuapp.herokuapp.com/public/index.php/" </b> </p>
