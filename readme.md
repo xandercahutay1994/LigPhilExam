@@ -1,3 +1,5 @@
+<p><b> I used HEROKU in deploying this blog site </b></p>
+
 <p> <b> LIST of URL's </b> </p>
 <p> <b> "ligphilexamherokuapp.herokuapp.com/public/index.php/" </b> </p>
 
@@ -45,7 +47,7 @@
 
 <p> Note: In "/adminLists" page, the articles that are displayed there are linked to "/adminPosts" page where you can edit the existing article that you clicked. </p>
 
-<p> <b> ADMINLIST PAGE </b> </p>
+<p> <b> LOGOUT PAGE </b> </p>
 <p> Just change the URL to this http://ligphilexamherokuapp.herokuapp.com/public/index.php/logout this logout your account, after that it will redirect to Log-in page "/login" </p>
 
 <p> Hopefully you understand my details, thank you so much! </p>
