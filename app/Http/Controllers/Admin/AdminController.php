@@ -76,8 +76,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Post Route/Url is "postSubmit"
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage/database
+     * 
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */

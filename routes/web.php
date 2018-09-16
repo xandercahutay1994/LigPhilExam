@@ -32,5 +32,5 @@ Route::prefix('/')->group(function(){
 	/**
 	*	ALL POST REQUEST
 	*/
-	Route::post('postSubmit', 'Admin\AdminController@store'); // save post article
+	Route::post('store', 'Admin\AdminController@store'); // save post article
 });

@@ -6,7 +6,7 @@
         <!--start l-main-->
         <main class="l-main js-main">
             <div class="l-main-block"></div>
-			<form method="POST" action="{{ url('/postSubmit') }}" class="form" enctype="multipart/form-data">
+			<form method="POST" action="{{ url('/store') }}" class="form" enctype="multipart/form-data">
                 <!-- csrf_token access to the page -->
                 {{ csrf_field() }}
                 <label for="image" class="form-title">EYE CATCH IMAGE
