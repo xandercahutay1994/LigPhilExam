@@ -1,6 +1,6 @@
 <h2 align="center"> I USED HEROKU IN DEPLOYING THIS BLOG SITE </h2>
 
-<p> <b> List of URL's </b> </p>
+## List of URL's 
 <p> <b> "ligphilexamherokuapp.herokuapp.com/public/index.php/" </b> </p>
 
 <p> <b> /register </b> </p>
