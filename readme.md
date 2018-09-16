@@ -38,15 +38,15 @@
 
 <p> Note: In "/adminLists" page, the articles that are displayed there are linked to "/adminPosts" page where you can edit the existing article that you clicked. </p>
 
-<p> List of URL's </p>
-<p> ligphilexamherokuapp.herokuapp.com/public/index.php </p>
-<b> /register </b>
-<b> /login </b>
-<b> /index </b>
-<b> /archive </b>
-<b> /single/{id} </b>
-<b> /adminPosts </b>
-<b> /adminLists </b>
+<p> <b> List of URL's <b> </p>
+<p> <b> ligphilexamherokuapp.herokuapp.com/public/index.php </b> </p>
+<p> <b> /register </b> </p>
+<p> <b> /login </b> </p>
+<p> <b> /index </b> </p>
+<p> <b> /archive </b> </p>
+<p> <b> /single/{id} </b> </p>
+<p> <b> /adminPosts </b> </p>
+<p> <b> /adminLists </b> </p>
 
 <p> Hopefully you understand my details, thank you so much </p>
 
