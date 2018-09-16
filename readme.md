@@ -10,7 +10,7 @@
 <p> <b> /single/{id} </b> </p>
 <p> <b> /adminPosts </b> </p>
 <p> <b> /adminLists </b> </p>
-##
+
 
 ## REGISTER PAGE 
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/register </p>
