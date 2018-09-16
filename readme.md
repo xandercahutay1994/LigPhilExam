@@ -22,9 +22,9 @@
 </p>
 
 <p> <b> SINGLE PAGE </b> </p>
-<p> You can click the images either in index or archive pages and it will navigate you to the single page. Single page shows the specific article you click and it shows the title and content details. Here is an example  http://ligphilexamherokuapp.herokuapp.com/public/index.php/single/12 </p>
+<p> You can click the images either in index or archive pages and it will navigate you to the single page. Single page shows the specific article you click and it shows the title and content details. Here is an example  http://ligphilexamherokuapp.herokuapp.com/public/index.php/single/5 </p>
 
-<p> To navigate back to index page simply click the BLOG LOGO. </p>
+<p> To navigate back to index page simply click the BLOG LOGO or "TOP" button. </p>
 
 <p> <b> ADMINPOST PAGE </b> </p>
 
