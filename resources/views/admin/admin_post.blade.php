@@ -18,11 +18,11 @@
                 <input type="file" name="image" id="image" class="input input-image">
                 <label for="title" class="form-title">TITLE</label>
                 <div class="form-body">
-                    <input type="text" id="title" name="title" class="input input-text" onkeypress="textOnly(event)" value="{{ Route::current()->getName() == 'edit' ?  $id->title : null }}">
+                    <input type="text" id="title" name="title" class="input input-text" value="{{ Route::current()->getName() == 'edit' ?  $id->title : null }}">
                 </div>
                 <label for="contents" class="form-title">CONTENTS</label>
                 <div class="form-textarea">
-                    <textarea name="inquiry" id="inquiry" cols="30" rows="10" class="input input-contents" onkeypress="textOnly(event)">{{ Route::current()->getName() == 'edit' ?  $id->content : null }}</textarea>
+                    <textarea name="inquiry" id="inquiry" cols="30" rows="10" class="input input-contents">{{ Route::current()->getName() == 'edit' ?  $id->content : null }}</textarea>
                 </div>
                 <!-- Error Message -->
                 <div class="nav-item">
@@ -34,7 +34,7 @@
 					    <p class="button-text">Submit</p>
 					</div>
                 </label>
-                <input type="submit" id="submit" class="input input-submit" onsubmit="textOnly(event)">
+                <input type="submit" id="submit" class="input input-submit">
                 <a href="{{ url('/adminLists') }}" class="form-button">
                     <div class="button">
 					    <p class="button-text">Back</p>
@@ -83,17 +83,6 @@
                 }   
 	    	});
 	    });
-
-        // =========================================
-        // Function to check if input is text only
-        // =========================================
-        function textOnly(event){
-            // g = global, i = allow uppercase, \s = allow spaces
-            var regexp = /[\sa-z]/gi;
-            var ch = String.fromCharCode(event.which);
-            if(!(regexp.test(ch)))
-                event.preventDefault();
-        }
     </script>
     <!-- end of script -->
 @endsection
