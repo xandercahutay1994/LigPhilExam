@@ -1,10 +1,8 @@
 <p> <b> REGISTER PAGE </b> </p>
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/register </p>
-<p> If no admin has been registered but this page allows only 1 admin to be registered.
- You only have to fill in the password input because it only creates 1 admin and I used auto-increments so the ID # you
- will be using when you want to login is "1".<p>
+<p> This page allows only 1 admin to be registered. If no admin has been registered, you only have to fill in the password input. Because it restrict only to create 1 admin, so the ID # you will be using when you want to login is "1". I used auto-increment in the database. <p>
 <p>
- Note: you can't edit your account in this page because this is intended only for registration of 1 admin. If you already have an account just skip this and go to Log-In page.
+ Note: you can't edit/delete your account in this page because this is intended only for registration of 1 admin. If you already have an account just skip this and go to Log-In page.
 </p>
 
 <p> <b> LOG-IN CREDENTIALS </b> </p>
