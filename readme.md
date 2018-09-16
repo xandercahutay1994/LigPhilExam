@@ -1,3 +1,14 @@
+<p> <b> LIST of URL's </b> </p>
+<p> <b> "ligphilexamherokuapp.herokuapp.com/public/index.php/" </b> </p>
+
+<p> <b> /register </b> </p>
+<p> <b> /login </b> </p>
+<p> <b> /index </b> </p>
+<p> <b> /archive </b> </p>
+<p> <b> /single/{id} </b> </p>
+<p> <b> /adminPosts </b> </p>
+<p> <b> /adminLists </b> </p>
+
 <p> <b> REGISTER PAGE </b> </p>
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/register </p>
 <p> This page allows only 1 admin to be registered. If no admin has been registered, you only have to fill in the password input. Because it restrict only to create 1 admin, so the ID # you will be using when you want to login is "1". I used auto-increment in the database. If succcessfully registered it will navigate automatically to Login Page else it will output a "ERROR" message. <p>
@@ -8,8 +19,6 @@
 <p> <b> LOG-IN CREDENTIALS </b> </p>
 
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/login </p>
-<p> ID => 1 </p>
-<p> Password => adminJim </p>
 
 <p> 
     After successfully logging in, you will be redirected to this page http://ligphilexamherokuapp.herokuapp.com/public/index.php/index. 
@@ -38,18 +47,6 @@
 
 <p> <b> ADMINLIST PAGE </b> </p>
 <p> Just change the URL to this http://ligphilexamherokuapp.herokuapp.com/public/index.php/logout this logout your account, after that it will redirect to Log-in page "/login" </p>
-
-<p> <b> LIST of URL's </b> </p>
-<p> <b> "ligphilexamherokuapp.herokuapp.com/public/index.php/" </b> </p>
-
-<p> <b> /register </b> </p>
-<p> <b> /login </b> </p>
-<p> <b> /index </b> </p>
-<p> <b> /archive </b> </p>
-<p> <b> /single/{id} </b> </p>
-<p> <b> /adminPosts </b> </p>
-<p> <b> /adminLists </b> </p>
-
 
 <p> Hopefully you understand my details, thank you so much! </p>
 
