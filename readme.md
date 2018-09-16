@@ -19,7 +19,7 @@
  Note: you can't edit/delete your account in this page because this is intended only for registration of 1 admin. If you already have an account just skip this and go to Log-In page.
 </p>
 
-## LOG-IN CREDENTIALS 
+## LOG-IN PAGE 
 
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/login </p>
 
