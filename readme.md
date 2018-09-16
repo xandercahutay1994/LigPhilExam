@@ -16,8 +16,8 @@
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/register </p>
 
 <p> 
-    After successfully login, you will redirected to this page http://ligphilexamherokuapp.herokuapp.com/public/index.php/index. <br>
-    This page list all the article posted with images and it shows only the latest 5 articles. Scroll down and you will see a "MORE" button, try clicking it and it will go to http://ligphilexamherokuapp.herokuapp.com/public/index.php/archive
+    After successfully logging in, you will be redirected to this page http://ligphilexamherokuapp.herokuapp.com/public/index.php/index. <br>
+    This page lists all the articles posted with images and it shows only the latest 5 articles. Scroll down and you will see a "MORE" button, try clicking it and it will go to http://ligphilexamherokuapp.herokuapp.com/public/index.php/archive. The archive page lists all the articles posted sort by date and maximum of 5 articles per page, you can access the rest of articles through pagination at the bottom of the page. 
 </p>
 
 
