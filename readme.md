@@ -1,6 +1,5 @@
-/*
-* Log-in Credentials
-*/
+<-- Log-in Credentials -->
+
 
 URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/login
 ID => 1
