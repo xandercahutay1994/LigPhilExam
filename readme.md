@@ -16,7 +16,7 @@
 </p>
 
 <p> <b> INDEX PAGE, ARCHIVE PAGE </b> </p>
-
+<p> Before you can navigate to this pages make sure you are already login </p>
 <p>
     This page lists all the articles posted with images and it shows only the latest 5 articles. Scroll down and you will see a "MORE" button, try clicking it and it will go to http://ligphilexamherokuapp.herokuapp.com/public/index.php/archive. The archive page lists all the articles posted sort by date and maximum of 5 articles per page, you can access the rest of articles through pagination at the bottom of the page. 
 </p>
