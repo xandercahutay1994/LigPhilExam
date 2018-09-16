@@ -6,7 +6,7 @@
  Note: you can't edit your account in this page because this is intended only for registration of 1 admin.
 -->
 
-<-- Log-in Credentials -->
+<p> <-- Log-in Credentials --> </p>
 
 <p> URL => http://ligphilexamherokuapp.herokuapp.com/public/index.php/login </p>
 <p> ID => 1 </p>
