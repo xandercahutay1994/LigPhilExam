@@ -1,6 +1,6 @@
-<p><b> I used HEROKU in deploying this blog site </b></p>
+<center> <p><b> I USED HEROKU IN DEPLOYING THIS BLOG SITE </b></p></center>
 
-<p> <b> LIST of URL's </b> </p>
+<p> <b> List of URL's </b> </p>
 <p> <b> "ligphilexamherokuapp.herokuapp.com/public/index.php/" </b> </p>
 
 <p> <b> /register </b> </p>
