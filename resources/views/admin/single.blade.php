@@ -8,7 +8,7 @@
         <div class="l-main-block"></div>
             <div class="single">
             	@if(count($showArticle) > 0)
-	                <img src="{{ asset('/articleImages/' . $showArticle[0]->image) }}" alt="" class="single-image">
+	                <img src="{{ asset('/articleImages/' . $showArticle[0]->image) }}" alt="Article Image" class="single-image">
 	                <div class="l-container u-clear">
 	                    <h1 class="single-title">{{ strToUpper($showArticle[0]->title) }}</h1>
 	                    <time class="single-date" datetime="{{ $showArticle[0]->created_at }}">
