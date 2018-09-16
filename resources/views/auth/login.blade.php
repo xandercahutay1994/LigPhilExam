@@ -9,7 +9,7 @@
             <form action="{{ url('/login') }}" method="POST" class="form">
                 {{ csrf_field() }}
                 <label for="user-id" class="form-title">USER ID</label>
-                <input type="text" id="user_id" name="user_id" class="input input-text">
+                <input type="number" id="user_id" name="user_id" class="input input-text">
                 <label for="password" class="form-title">PASSWORD</label>
                 <input type="password" id="password" name="password" class="input input-text">
                 <!-- Error Message -->
