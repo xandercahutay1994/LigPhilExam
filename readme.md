@@ -4,7 +4,7 @@
 <p> ID => 1 </p>
 <p> Password => adminJim </p>
 
-<-- <p> Register Page </p> -->
+<p> REGISTER PAGE </p>
 <-- If no admin has been registered but this page allows only 1 admin to be registered.
  You only have to fill in the password input because it only creates 1 admin and I used auto-increments so the ID # you
  will be using when you want to login is "1".
