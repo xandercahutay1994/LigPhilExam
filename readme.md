@@ -52,6 +52,6 @@
 <p> Just change the URL to this http://ligphilexamherokuapp.herokuapp.com/public/index.php/logout this logout your account, after that it will redirect to Log-in page "/login" </p>
 
 ## My Notes and Thoughts 
-<p> Since I only use Heroku especially in saving the images, when you save an article with image it will really show in the browser but after an hour it will disappear because Heroku file system is read only. I tried AWS or Amazon but I couldnt use it because I don't have any credit/debit card so they didn't allow me to create an account. It will disappear every 1hour, but if you add new article the image will really appear on the site. Hopefully you understand my details, thank you so much! </p>
+<p> Since I only use Heroku especially in saving the images, when you save an article with image it will really show in the browser but after an hour it will disappear because Heroku file system is read only. I tried AWS or Amazon but I couldnt use it because I don't have any credit/debit card so they didn't allow me to create an account. It will disappear every 1hour, but if you add new article the image will really appear on the site. And even the image are not showing anymore, you can edit the specific article post and update the image itself and it will update, also you will see the image in the article you updated. Hopefully you understand my details, thank you so much! </p>
 
 
